@@ -5,10 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg;
 
 type
-  TForm1 = class(TForm)
+  Tpageprincipal = class(TForm)
     pnlContainer: TPanel;
     pnlTitle: TPanel;
     pnlButton: TPanel;
@@ -36,9 +36,31 @@ type
     DBGrid1: TDBGrid;
     pnlTotalCompra: TPanel;
     Label1: TLabel;
-    pnledtTotalCompra: TPanel;
+    pnlEdtTotalCompra: TPanel;
     Shape7: TShape;
     lblTotalCompra: TLabel;
+    pnlSubTotal: TPanel;
+    Label2: TLabel;
+    pnlEdtSubTotal: TPanel;
+    Shape8: TShape;
+    lblSubTotal: TLabel;
+    pnlQuantidade: TPanel;
+    Label3: TLabel;
+    pnlEdtQuantidade: TPanel;
+    Shape9: TShape;
+    edtQuantidade: TEdit;
+    pnlPreco: TPanel;
+    Label4: TLabel;
+    pnlEdtPreco: TPanel;
+    Shape10: TShape;
+    lblPreco: TLabel;
+    pnlProduto: TPanel;
+    Label5: TLabel;
+    pnlEdtProduto: TPanel;
+    Shape11: TShape;
+    edtProduto: TEdit;
+    pnlImgProduto: TPanel;
+    ImageProduto: TImage;
   private
     { Private declarations }
   public
@@ -46,7 +68,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  pageprincipal: Tpageprincipal;
 
 implementation
 
