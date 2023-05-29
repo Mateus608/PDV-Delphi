@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/05/26 00:36:02.000.984,=C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/26 00:37:30.000.609,C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\PDV.dproj=C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/05/26 00:44:54.000.054,C:\Users\mateu\Downloads\www\PDV\src\view\pdv.view.principal.dfm=C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/05/26 00:44:54.000.054,C:\Users\mateu\Downloads\www\PDV\src\view\pdv.view.principal.pas=C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/26 00:45:29.000.751,C:\Users\mateu\Downloads\www\PDV\PDV.dproj=C:\Users\mateu\OneDrive\Documentos\Embarcadero\Studio\Projects\PDV.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
