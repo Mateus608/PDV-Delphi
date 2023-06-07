@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login,
+  Vcl.WinXCtrls, pdv.view.page.pagamento;
 
 type
   Tpageprincipal = class(TForm)
@@ -63,16 +64,40 @@ type
     ImageProduto: TImage;
     pnlMaster: TPanel;
     dsItens: TDataSource;
+    SplitViewFuncoes: TSplitView;
+    pnlFuncoes: TPanel;
+    pnlCpf: TPanel;
+    Shape12: TShape;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Shape13: TShape;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Shape14: TShape;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Shape15: TShape;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Shape16: TShape;
+    Panel9: TPanel;
+    Panel10: TPanel;
+    Shape17: TShape;
+    SplitViewPagamentos: TSplitView;
+    pnlPg: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dsItensDataChange(Sender: TObject; Field: TField);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure btnMaisFuncoesClick(Sender: TObject);
 
   private
 
     FLogin: TPageLogin; //Formulario Login
     procedure MontarBotoes; //Atalho dos botões
     procedure FixarForm; //Fixar tamanho de tela
+    procedure SplitViewAction(Value: TSplitView); //Abrir SplitViewFuncoes
 
   public
 
@@ -87,6 +112,11 @@ implementation
 {$R *.dfm}
 
 uses pdv.model.dados;
+
+procedure Tpageprincipal.btnMaisFuncoesClick(Sender: TObject);
+begin
+  SplitViewAction(SplitViewFuncoes); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
+end;
 
 procedure Tpageprincipal.dsItensDataChange(Sender: TObject; Field: TField);
 begin
@@ -116,11 +146,36 @@ begin
   FixarForm;
 end;
 
+procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+
+var
+  lPagamentos: TPagePagamentos;
+
+begin
+  case Key of
+  //Definir ações às teclas de atalho
+    VK_ESCAPE: ShowMessage ('Cancelar Operação');
+    VK_F4: ShowMessage ('Consultar Preço');
+    VK_F2: ShowMessage ('Abrir Caixa');
+    VK_F6: ShowMessage ('Cancelar Venda');
+    VK_F5: ShowMessage ('Cancelar Item');
+    VK_F12: btnMaisFuncoesClick(Sender);
+    VK_F7: begin
+      lPagamentos := TPagePagamentos.Create(nil); //Cria o formulario de pagamentos
+      lPagamentos.Parent := pnlPg;
+      lPagamentos.Show;
+      SplitViewAction(SplitViewPagamentos); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
+    end;
+
+  end;
+end;
+
 procedure Tpageprincipal.FormShow(Sender: TObject);
 begin
-  FLogin := TPageLogin.Create(nil); //Criar Formulario
-  FLogin.Parent := pnlMaster; //Embedar - incorporar
-  FLogin.Show;
+//  FLogin := TPageLogin.Create(nil); //Criar Formulario
+//  FLogin.Parent := pnlMaster; //Embedar - incorporar
+//  FLogin.Show;
 end;
 
 procedure Tpageprincipal.MontarBotoes;
@@ -132,6 +187,11 @@ begin
   btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + ' (F6)';
   btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + ' (F5)';
   btnMaisFuncoes.Caption := 'Mais Funções' + ''#13'' + ' (F12)';
+end;
+
+procedure Tpageprincipal.SplitViewAction(Value: TSplitView);
+begin
+  Value.Opened := not Value.Opened; //SplitView.Opened = True
 end;
 
 end.

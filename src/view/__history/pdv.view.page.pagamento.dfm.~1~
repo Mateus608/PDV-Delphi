@@ -1,0 +1,50 @@
+object PagePagamentos: TPagePagamentos
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'PagePagamentos'
+  ClientHeight = 617
+  ClientWidth = 840
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object pnlContainer: TPanel
+    Left = 0
+    Top = 0
+    Width = 840
+    Height = 617
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 576
+    ExplicitTop = 320
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object pnlIformacoes: TPanel
+      Left = 0
+      Top = 0
+      Width = 273
+      Height = 617
+      Align = alLeft
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+    object pnlFormasPagamento: TPanel
+      Left = 273
+      Top = 0
+      Width = 567
+      Height = 617
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 312
+      ExplicitTop = 200
+      ExplicitWidth = 185
+      ExplicitHeight = 41
+    end
+  end
+end
