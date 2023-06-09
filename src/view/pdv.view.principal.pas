@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login,
-  Vcl.WinXCtrls, pdv.view.page.pagamento;
+  Vcl.WinXCtrls, pdv.view.page.pagamento, pdv.view.page.identificarcliente;
 
 type
   Tpageprincipal = class(TForm)
@@ -85,6 +85,8 @@ type
     Shape17: TShape;
     SplitViewPagamentos: TSplitView;
     pnlPg: TPanel;
+    Panel11: TPanel;
+    Shape18: TShape;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -167,7 +169,17 @@ begin
       lPagamentos.Show;
       SplitViewAction(SplitViewPagamentos); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
     end;
-
+    VK_F1: begin
+       TpageIdentificarCliente.New(Self)
+        .Embed(pnlMaster)
+          .Show;
+    end;
+    VK_F9: begin
+        TpageIdentificarCliente.New(Self)
+        .IdentificarCPF
+        .Embed(pnlMaster)
+          .Show;
+    end;
   end;
 end;
 

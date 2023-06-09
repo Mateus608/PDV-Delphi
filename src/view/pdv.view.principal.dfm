@@ -3566,6 +3566,25 @@ object pageprincipal: Tpageprincipal
                         ExplicitWidth = 200
                       end
                     end
+                    object Panel11: TPanel
+                      Left = 0
+                      Top = 41
+                      Width = 0
+                      Height = 41
+                      Align = alTop
+                      BevelOuter = bvNone
+                      Caption = 'Informar Cliente (F1)'
+                      TabOrder = 1
+                      object Shape18: TShape
+                        Left = 0
+                        Top = 40
+                        Width = 0
+                        Height = 1
+                        Align = alBottom
+                        ExplicitTop = 39
+                        ExplicitWidth = 200
+                      end
+                    end
                   end
                 end
               end
@@ -3593,10 +3612,6 @@ object pageprincipal: Tpageprincipal
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitLeft = 288
-          ExplicitTop = 264
-          ExplicitWidth = 185
-          ExplicitHeight = 41
         end
       end
     end
