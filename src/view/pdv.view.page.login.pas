@@ -30,6 +30,8 @@ type
     procedure btnLogarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
   private
     FFundo: TFundoTransparente; //Fundo transparente na imagem do Form Login
   public
@@ -67,6 +69,24 @@ begin
   FFundo := TFundoTransparente.Create(nil);
   FFundo.Parent := pnlImage;
   FFundo.Show;
+
+end;
+
+procedure TPageLogin.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+   VK_RETURN: begin
+
+    btnLogarClick(Self);
+
+   end;
+  end;
+end;
+
+procedure TPageLogin.FormShow(Sender: TObject);
+begin
+  edtUsuario.SetFocus;
 end;
 
 end.

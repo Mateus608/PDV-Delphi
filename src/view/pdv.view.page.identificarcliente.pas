@@ -16,10 +16,6 @@ type
     Label1: TLabel;
     Shape2: TShape;
     edtCpfCnpj: TEdit;
-    pnlNome: TPanel;
-    Label2: TLabel;
-    Shape3: TShape;
-    edtNome: TEdit;
     pnlButton: TPanel;
     Panel19: TPanel;
     ShapeCredito: TShape;
@@ -34,14 +30,20 @@ type
     Image3: TImage;
     Panel26: TPanel;
     procedure FormShow(Sender: TObject);
-    procedure FormResize(Sender: TObject);
     procedure Panel25Click(Sender: TObject);
+    procedure Panel21Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
-    { Private declarations }
+    //Método anônimo (Retorna o metodo sem ter uma implementação)
+    FProc: TProc<String>; //Pega o CPF e o Nome
   public
     class function New(AOWner: TComponent): TpageIdentificarCliente;
     function Embed(Value: TWinControl): TpageIdentificarCliente;
     function IdentificarCPF: TpageIdentificarCliente;
+
+    function IdentificarCliente(Value: TProc<String>): TpageIdentificarCliente; //Método Anônimo
   end;
 
 var
@@ -58,32 +60,54 @@ begin
   Self.Parent := Value;
 end;
 
-procedure TpageIdentificarCliente.FormResize(Sender: TObject);
-//Trabalhando com responsividade
-var
-  lHeight, lWidth: Integer;
+procedure TpageIdentificarCliente.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-    lHeight := Round((Self.Height - pnlIdentificacaoCliente.Height)/2);
-    lWidth := Round((Self.Width - pnlIdentificacaoCliente.Width)/2);
-
-    pnlIdentificacaoCliente.Margins.Left := lWidth;
-    pnlIdentificacaoCliente.Margins.Right := lWidth;
-    pnlIdentificacaoCliente.Margins.Top := lHeight;
-    pnlIdentificacaoCliente.Margins.Bottom := lHeight;
-
-    pnlIdentificacaoCliente.Align := alClient;
+  case key of
+    VK_ESCAPE: begin
+    ShowMessage('Teste Foco');
+    end;
+  end;
 end;
 
 procedure TpageIdentificarCliente.FormShow(Sender: TObject);
 begin
   edtCpfCnpj.SetFocus;
+
+  Align := AlNone;
+  AutoSize := False;
+  WindowState := wsNormal;
+  Top := 0;
+  Left := 0;
+  Width := Screen.Width;
+  Height := Screen.Height;
+
+end;
+
+function TpageIdentificarCliente.IdentificarCliente(
+  Value: TProc<String>): TpageIdentificarCliente;
+begin
+  Result := Self;
+  FProc := Value;
+
 end;
 
 function TpageIdentificarCliente.IdentificarCPF: TpageIdentificarCliente;
 begin
   Result := Self; //Retorna este (Self) - retorna para essa classe
-  pnlNome.Visible := False;
-  pnlIdentificacaoCliente.Height := (pnlIdentificacaoCliente.Height-pnlNome.Height);
+end;
+
+procedure TpageIdentificarCliente.Image2Click(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure TpageIdentificarCliente.Image3Click(Sender: TObject);
+begin
+   if Assigned(FProc) then
+    FProc(edtCpfCnpj.Text); //Ao cliclar em confirmar, ele passa os valores para o FProc
+
+  Self.Close;
 end;
 
 class function TpageIdentificarCliente.New(
@@ -92,9 +116,16 @@ begin
   Result := Self.Create(AOwner);
 end;
 
+procedure TpageIdentificarCliente.Panel21Click(Sender: TObject);
+begin
+  Self.Close;
+end;
+
 procedure TpageIdentificarCliente.Panel25Click(Sender: TObject);
 begin
-  ShowMessage('Confirmado');
+  if Assigned(FProc) then
+    FProc(edtCpfCnpj.Text); //Ao cliclar em confirmar, ele passa os valores para o FProc
+
   Self.Close;
 end;
 

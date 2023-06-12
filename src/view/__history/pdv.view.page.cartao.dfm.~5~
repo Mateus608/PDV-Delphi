@@ -1,0 +1,255 @@
+object FrameCartao: TFrameCartao
+  Left = 0
+  Top = 0
+  Width = 507
+  Height = 304
+  TabOrder = 0
+  object pnlContainerCartao: TPanel
+    Left = 0
+    Top = 0
+    Width = 507
+    Height = 304
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    object pnlListaPagamento: TPanel
+      AlignWithMargins = True
+      Left = 80
+      Top = 107
+      Width = 337
+      Height = 90
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 20
+      BevelOuter = bvNone
+      Padding.Top = 10
+      TabOrder = 0
+      object Panel19: TPanel
+        AlignWithMargins = True
+        Left = 0
+        Top = 10
+        Width = 150
+        Height = 80
+        Margins.Left = 0
+        Margins.Top = 0
+        Margins.Right = 28
+        Margins.Bottom = 0
+        Align = alLeft
+        BevelOuter = bvNone
+        TabOrder = 0
+        object ShapeCredito: TShape
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 80
+          Align = alClient
+          Pen.Color = 1357025
+          Pen.Style = psClear
+          Shape = stRoundRect
+          ExplicitLeft = 72
+          ExplicitTop = 32
+          ExplicitWidth = 65
+          ExplicitHeight = 65
+        end
+        object pnlCartao: TPanel
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 80
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 0
+          object Panel21: TPanel
+            Left = 0
+            Top = 0
+            Width = 150
+            Height = 51
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object Image2: TImage
+              AlignWithMargins = True
+              Left = 50
+              Top = 5
+              Width = 50
+              Height = 46
+              Margins.Left = 50
+              Margins.Top = 5
+              Margins.Right = 50
+              Margins.Bottom = 0
+              Align = alClient
+              Picture.Data = {
+                0954506E67496D61676589504E470D0A1A0A0000000D49484452000000640000
+                0064080600000070E29554000000097048597300000B1300000B1301009A9C18
+                000003C84944415478DAEDDDCF4E134100C7F199694851FEF8027A341A51A46D
+                DCF6E6036884835E305EE5A246A54D8C3121261A8DA5468C07B99370D04431FA
+                009E68C152826034DCD417105069801D6721DBACB4504A0BFB6BF3FB1CA0DB4E
+                4967BFDD6EDBC3200541917E3F00FA1F83806110300C028641C03008180601C3
+                206018040C83806110300C028641C03008180601C320601804CC8E824486234D
+                8185B56EA9648FB329853C627EB7F8FDE091692D9684D43FCDC5ACB6F5DBB5F6
+                C058B62FBB52EE7E6583584FBBBA95564973F1A8DF93AC73F3B6B41313B7A7C7
+                B61BB4759001A162EDA18766C81DBF67D230B473E0E8C799C5DC3D715FD8A586
+                6C1924960A3D628CBDA1B57E9489E7EE96BAAD6490F597295BBD31B7166E3765
+                97CD8F9752AAD13FF6CADC4C62E6B7DF1343D699EC6C39A89A3A84B07BB5107D
+                665736176EDC38527A4C94779BEF5714C43981372DE939E1396798A2DF950E9C
+                1B4F7C9AF57BA2F528968A9C32613E888D3743AEF99556D9B1F9445F14C44A76
+                5D544ABD72B79D2343D981338C511D278A79624F4A2982EE75B66D5F9A484CBF
+                F68E2B0A124D8546CCE175D9DD367FE49939B46EF93DA146101B0C0D09296F14
+                AED062241D9FBAE21D531C6430F4554A79AC30C0B6ADF1C4F4A4DF936904D164
+                242A954EBBDBE6C9FECD3CD98F7BC79408125E348755ABBB1D0C2EB77DBCF665
+                C9EFC93482B32F4EB4E6F3CD8BEEB6F3E131139F6AF38E290A124B85B5773BDD
+                3FC5AF576AA8DCFE65907DC6206018044CD541686F3108180601C3206018040C
+                83806110300C028641C03008187E75E2337E97058641C03008180601C32060F6
+                2D88DF6F97EBE589C3206018040C8380E1491D0C83806110300C028641C03008
+                180601C3206018040C83806110300C028641C03008180601C3206018040C8380
+                6110300C02A6E220D15468410A595810858BCFD48E3564B5ABD5D55F852BB45E
+                48C77387BC63CA2ECF648644D3FDD909BF27D308AC5438A6841877B777B63CD3
+                A605CCCCDD86D2FDB99B7E4FA6114453E1E766875F2F5CB19305CC4A2DF12785
+                B2CC51F2D9EF09D5332BD5755A6A95A97889BFAD16C194529D6794DD893E0975
+                CA8078BFAB45301D259789D5222F851EB6A51C3D105C9EE5897E7BCEEA717FF3
+                CD27CD0EEC352F3357BD474645CBC4BAB890F2DEA97821E575034245DB420FA4
+                13450A7E16A9856A961A7799B7C117CCDBE041C1C5F8AB356F8E8C78A99729AF
+                5DFDBB0AA1E561EFCAA554CC5971D4ECDC1FE662D6D6F658CDFE5D05ED2F0601
+                C3206018040C83806110300C028641C03008180601C3206018040C8380611030
+                0C028641C03008180601F30F23C07883CC52D7BC0000000049454E44AE426082}
+              Stretch = True
+              ExplicitLeft = 96
+              ExplicitTop = 16
+              ExplicitWidth = 105
+              ExplicitHeight = 105
+            end
+          end
+          object Panel22: TPanel
+            Left = 0
+            Top = 51
+            Width = 150
+            Height = 29
+            Align = alClient
+            BevelOuter = bvNone
+            Caption = 'Cr'#233'dito'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 6708056
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+        end
+      end
+      object pnlPix: TPanel
+        AlignWithMargins = True
+        Left = 178
+        Top = 10
+        Width = 150
+        Height = 80
+        Margins.Left = 0
+        Margins.Top = 0
+        Margins.Right = 28
+        Margins.Bottom = 0
+        Align = alLeft
+        BevelOuter = bvNone
+        TabOrder = 1
+        object ShapeDebito: TShape
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 80
+          Align = alClient
+          Pen.Color = 1357025
+          Pen.Style = psClear
+          Shape = stRoundRect
+          ExplicitLeft = 72
+          ExplicitTop = 32
+          ExplicitWidth = 65
+          ExplicitHeight = 65
+        end
+        object Panel24: TPanel
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 80
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 0
+          object Panel25: TPanel
+            Left = 0
+            Top = 0
+            Width = 150
+            Height = 51
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object Image3: TImage
+              AlignWithMargins = True
+              Left = 50
+              Top = 5
+              Width = 50
+              Height = 46
+              Margins.Left = 50
+              Margins.Top = 5
+              Margins.Right = 50
+              Margins.Bottom = 0
+              Align = alClient
+              Picture.Data = {
+                0954506E67496D61676589504E470D0A1A0A0000000D49484452000000640000
+                0064080600000070E29554000000097048597300000B1300000B1301009A9C18
+                000003A34944415478DAED9D4F4F1341188767B65835807E01391A0AEDAE2668
+                F13B6884835E305EF5A4D14413623C6A30D18370D23B09074D14A39FC13FD804
+                76018BDED42F209488153ABE256EB3C0424B0BCCAFCDEF4960D8D97949E77D76
+                769A3DBCAB158142DBFE00642314020685804121605008181402068580412160
+                500818140206858041216050081814020685804121605008183509F9DCD777A8
+                BD581CD05A0F1AA5FAB4315D4AEB76DB1F1E9C82E4EAA72438678C79BD9C4C4E
+                9EC9E5FE560BAA2A24EFBA03D23C1601276DCFB0A931E69BFCBE9B0A82C99D86
+                6D2B44EC3A22E3A1AC8A61DB73691524A746EE2E8FBA83E0BE24BE1437665B21
+                5F5C778432F609634664A5DC8B3B152BA47C9B325ABFD291F36277459A678ED6
+                13BF8D993BEDFBCBB6E785CCB4E7B51FD53A2DFBC790E4EEBA24F24878AEBC52
+                44CA604F10BCD91CB745487903EF2816E736ED19DF657D9DEFF5FD59DB136D46
+                E46EE34A3EDF49B2BB2A9DB2A71492C9F4E68D5EC7045F925BD58B4A9CAC0CF9
+                394B198DF15FCA9424FC70D827ABE7B2AC9297D1715B84E43D6F5C9A2B9520A5
+                9EF6F8FE6DDB136A05642B18152937C36311322E42AE46C7C409C94BD35DE970
+                9C6C6A7A7ACAF6645A8105CFEB970BFC43B42BE5FBA9E89838214BD27484C7AB
+                ABAB9D99F9F982EDC9B402B3BDBD1D6D6D6D4B91AE8208E98C8E891362A2C712
+                C0C72B7B48B5FC52C8014321605008180D0B21FB0B8580412160500818140206
+                85804121605008181402068580C1472796E1B32C3028040C0A018342C0A01030
+                0E4C88EDAFCBCD72E15008181402068580C14D1D0C0A018342C0A0103028040C
+                0A018342C0A0103028040C0A018342C0A0103028040C0A018342C0A010302804
+                0C0A018342C0A01030EA11B2284DA5200A8BCFEC1D5FB3D963A595955FE1B131
+                66B127088E47C7542DCFA4B5EEEF9E99F9647B32ADC0BCEB9E73B47E1FE9AAA9
+                3CD3860266C2A804DDB23D995620EFBA637285DF088F6B2A601657E24F22B312
+                18D89E5033B3904E9F2A25121F775DE26FBB2298127C8152EA239FC978C671DE
+                D6550473FD1FC49789FDA38D795E526AA2B4B636CB8D7E67CAD5E39C4422E328
+                3524B9BCB66165ECA64C6C080B29EF23BB2DA4BC1EA394B3E0BA0FC4EEB0AEA1
+                463CA94E43A5C64364A55C94414F588CBF4164CF102177E26E5351EA7B5D8552
+                2754A4722989A5FCBA8A1F2222277F4FEED9EB2AC8C142216050081814020685
+                8041216050081814020685804121605008181402068580412160500818140206
+                8580412160FC0368E16E83C54C5EA30000000049454E44AE426082}
+              Stretch = True
+              ExplicitLeft = 96
+              ExplicitTop = 16
+              ExplicitWidth = 105
+              ExplicitHeight = 105
+            end
+          end
+          object Panel26: TPanel
+            Left = 0
+            Top = 51
+            Width = 150
+            Height = 29
+            Align = alClient
+            BevelOuter = bvNone
+            Caption = 'D'#233'bito'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 6708056
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+        end
+      end
+    end
+  end
+end

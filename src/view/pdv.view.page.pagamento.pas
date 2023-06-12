@@ -5,8 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, Vcl.Menus, pdv.view.page.pix, pdv.view.page.dinheiro,
-  pdv.view.page.cartao;
+  Vcl.Imaging.pngimage, Vcl.Menus, Vcl.Buttons, pdv.view.page.cartao;
 
 type
   TPagePagamentos = class(TForm)
@@ -15,20 +14,16 @@ type
     pnlFormasPagamento: TPanel;
     Panel1: TPanel;
     pnlInfoVenda: TPanel;
-    Panel2: TPanel;
     Panel3: TPanel;
-    Panel4: TPanel;
-    Image1: TImage;
-    Label1: TLabel;
     Panel5: TPanel;
     Label2: TLabel;
     Label3: TLabel;
     Panel6: TPanel;
     Label4: TLabel;
-    edtDesconto: TEdit;
+    edtAcrescimo: TEdit;
     Panel7: TPanel;
     Label5: TLabel;
-    Edit1: TEdit;
+    edtDesconto: TEdit;
     Panel8: TPanel;
     Label6: TLabel;
     Label7: TLabel;
@@ -36,7 +31,6 @@ type
     Panel9: TPanel;
     Panel10: TPanel;
     Label8: TLabel;
-    Edit2: TEdit;
     Panel11: TPanel;
     Label9: TLabel;
     Label10: TLabel;
@@ -45,7 +39,6 @@ type
     Label12: TLabel;
     Panel13: TPanel;
     Panel14: TPanel;
-    Shape2: TShape;
     Panel15: TPanel;
     Panel16: TPanel;
     Panel17: TPanel;
@@ -53,28 +46,38 @@ type
     Panel19: TPanel;
     ShapeCartao: TShape;
     pnlCartao: TPanel;
-    Panel21: TPanel;
+    pnlCartaoClick: TPanel;
     Panel22: TPanel;
     Image2: TImage;
     pnlPix: TPanel;
     ShapePix: TShape;
     Panel24: TPanel;
-    Panel25: TPanel;
+    pnlPixClick: TPanel;
     Image3: TImage;
     Panel26: TPanel;
     pnlDinheiro: TPanel;
     ShapeDinheiro: TShape;
     Panel28: TPanel;
-    Panel29: TPanel;
+    pnlDinheiroClick: TPanel;
     Image4: TImage;
     Panel30: TPanel;
     pnlContainerPg: TPanel;
     Panel32: TPanel;
     Shape6: TShape;
-    procedure Panel25Click(Sender: TObject);
-    procedure Panel21Click(Sender: TObject);
-    procedure Panel29Click(Sender: TObject);
+    Panel2: TPanel;
+    Shape2: TShape;
+    Panel4: TPanel;
+    pnlCancelarVenda: TPanel;
+    Image1: TImage;
+    Panel20: TPanel;
+    Label1: TLabel;
+    imgPix: TImage;
+    procedure Image1Click(Sender: TObject);
+    procedure pnlCartaoClickClick(Sender: TObject);
+    procedure pnlPixClickClick(Sender: TObject);
+    procedure pnlDinheiroClickClick(Sender: TObject);
   private
+    FCartao: TFormCartao;
     procedure SetClick(Shape: TShape; Panel: TPanel);
   public
     { Public declarations }
@@ -87,38 +90,33 @@ implementation
 
 {$R *.dfm}
 
-procedure TPagePagamentos.Panel21Click(Sender: TObject);
+procedure TPagePagamentos.Image1Click(Sender: TObject);
 begin
-  TFrameCartao.New(Self).Alinhamento(alClient).Embed(pnlContainerPg);
+  Self.Close; //Fecha o formulario
+  Self.Free; //Libera da meória
+end;
+
+procedure TPagePagamentos.pnlCartaoClickClick(Sender: TObject);
+begin
   SetClick(ShapeCartao, pnlListaPagamento); //Seleciona o Cartão (Style Shape)
+  FCartao := TFormCartao.Create(nil);
+  FCartao.Show;
 end;
 
-procedure TPagePagamentos.Panel25Click(Sender: TObject);
-var
-  lFrame: TFramePix;
+procedure TPagePagamentos.pnlDinheiroClickClick(Sender: TObject);
 begin
-  lFrame := TFramePix.Create(nil); //Cria o Frame - Visibilidade ao Frame
-  lFrame.Align := alClient; //Alinha Frame alClient
-  lFrame.Parent := pnlContainerPg; //Frame vai abrir diretamente no TPanel
-
-  SetClick(ShapePix, pnlListaPagamento); //Seleciona o Pix (Style Shape)
-end;
-
-procedure TPagePagamentos.Panel29Click(Sender: TObject);
-var
-  lFrame: TFrameDinheiro;
-begin
-  lFrame := TFrameDinheiro.Create(nil);
-  lFrame.Align := alClient;
-  lFrame.Parent := pnlContainerPg;
-  lFrame.edtRecebido.SetFocus;
-
   SetClick(ShapeDinheiro, pnlListaPagamento); //Seleciona o Dinheiro (Style Shape)
+end;
+
+procedure TPagePagamentos.pnlPixClickClick(Sender: TObject);
+begin
+  SetClick(ShapePix, pnlListaPagamento); //Seleciona o Pix (Style Shape)
+  imgPix.Visible := True
 end;
 
 procedure TPagePagamentos.SetClick(Shape: TShape; Panel: TPanel);
 begin
-//Define o estilo para o Shape para utilizar na ação SetClick
+  //Define o estilo para o Shape para utilizar na ação SetClick
   ShapeCartao.Pen.Style := psClear;
   ShapePix.Pen.Style := psClear;
   ShapeDinheiro.Pen.Style := psClear;

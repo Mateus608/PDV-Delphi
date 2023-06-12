@@ -123,23 +123,20 @@
             <Form>PagePagamentos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="src\view\pdv.view.page.pix.pas">
-            <Form>FramePix</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="src\view\pdv.view.page.dinheiro.pas">
-            <Form>FrameDinheiro</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="src\view\pdv.view.page.cartao.pas">
-            <Form>FrameCartao</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="src\view\pdv.view.page.identificarcliente.pas">
             <Form>pageIdentificarCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\pdv.view.page.importarcliente.pas">
+            <Form>PageImportarCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\pdv.view.page.cartao.pas">
+            <Form>FormCartao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\pdv.view.page.valorcaixa.pas">
+            <Form>pageValorCaixa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

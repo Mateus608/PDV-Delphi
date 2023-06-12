@@ -3,76 +3,64 @@ unit pdv.view.page.cartao;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
 
 type
-  TFrameCartao = class(TFrame)
-    pnlContainerCartao: TPanel;
+  TFormCartao = class(TForm)
     pnlListaPagamento: TPanel;
     Panel19: TPanel;
-    ShapeCredito: TShape;
+    ShapeCartao: TShape;
     pnlCartao: TPanel;
-    Panel21: TPanel;
+    pnlCartaoClick: TPanel;
     Image2: TImage;
     Panel22: TPanel;
+    pnlDinheiro: TPanel;
+    ShapeDinheiro: TShape;
+    Panel28: TPanel;
+    pnlDinheiroClick: TPanel;
+    Image4: TImage;
+    Panel30: TPanel;
+    Panel1: TPanel;
+    pnlButton: TPanel;
     pnlPix: TPanel;
     ShapeDebito: TShape;
     Panel24: TPanel;
     Panel25: TPanel;
-    Image3: TImage;
     Panel26: TPanel;
-    Panel1: TPanel;
+    Image3: TImage;
     Panel2: TPanel;
-    ShapeCartao: TShape;
+    Shape1: TShape;
     Panel3: TPanel;
     Panel4: TPanel;
     Image1: TImage;
     Panel5: TPanel;
-    Shape1: TShape;
-    Panel6: TPanel;
-    Panel7: TPanel;
-    Image4: TImage;
-    Panel8: TPanel;
-    Shape2: TShape;
-    Panel9: TPanel;
-    Panel10: TPanel;
-    Image5: TImage;
-    Panel11: TPanel;
-    Shape3: TShape;
-    Panel12: TPanel;
-    Panel13: TPanel;
-    Image6: TImage;
+    procedure Image1Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
   private
     { Private declarations }
   public
-    class function New(Aowner: TComponent): TFrameCartao;
-    function Alinhamento(Value: TAlign): TFrameCartao;
-    function Embed(Value: TWinControl): TFrameCartao;
+    { Public declarations }
   end;
+
+var
+  FormCartao: TFormCartao;
 
 implementation
 
 {$R *.dfm}
 
-{ TFrameCartao }
-
-function TFrameCartao.Alinhamento(Value: TAlign): TFrameCartao;
+procedure TFormCartao.Image1Click(Sender: TObject);
 begin
-  Result := Self; //Retorna a própria classe
-  Self.Align := Value;
+  Self.Close;
+  Self.Free;
 end;
 
-function TFrameCartao.Embed(Value: TWinControl): TFrameCartao;
+procedure TFormCartao.Image3Click(Sender: TObject);
 begin
-  Result := Self;
-  Self.Parent := Value;
-end;
-
-class function TFrameCartao.New(Aowner: TComponent): TFrameCartao;
-begin
-  Result := Self.Create(Aowner);
+  ShowMessage('Cartão Selecionado');
+  Self.Close;
+  Self.Free;
 end;
 
 end.

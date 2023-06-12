@@ -1,0 +1,51 @@
+unit pdv.view.page.cartao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+
+type
+  TFormCartao = class(TForm)
+    pnlListaPagamento: TPanel;
+    Panel19: TPanel;
+    ShapeCartao: TShape;
+    pnlCartao: TPanel;
+    pnlCartaoClick: TPanel;
+    Image2: TImage;
+    Panel22: TPanel;
+    pnlDinheiro: TPanel;
+    ShapeDinheiro: TShape;
+    Panel28: TPanel;
+    pnlDinheiroClick: TPanel;
+    Image4: TImage;
+    Panel30: TPanel;
+    Panel1: TPanel;
+    pnlButton: TPanel;
+    pnlPix: TPanel;
+    ShapeDebito: TShape;
+    Panel24: TPanel;
+    Panel25: TPanel;
+    Panel26: TPanel;
+    Image3: TImage;
+    Panel2: TPanel;
+    Shape1: TShape;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Image1: TImage;
+    Panel5: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCartao: TFormCartao;
+
+implementation
+
+{$R *.dfm}
+
+end.

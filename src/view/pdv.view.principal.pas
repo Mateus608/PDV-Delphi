@@ -6,40 +6,17 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login,
-  Vcl.WinXCtrls, pdv.view.page.pagamento, pdv.view.page.identificarcliente;
+  Vcl.WinXCtrls, pdv.view.page.pagamento, pdv.view.page.identificarcliente,
+  pdv.view.page.importarcliente, Vcl.Imaging.pngimage, pdv.view.page.valorcaixa;
 
 type
   Tpageprincipal = class(TForm)
     pnlContainer: TPanel;
     pnlTitle: TPanel;
-    pnlButton: TPanel;
     pnlMain: TPanel;
     pnlOperacoes: TPanel;
     pnlGrid: TPanel;
-    pnlCancelarOp: TPanel;
-    Shape1: TShape;
-    btnCancelarOp: TSpeedButton;
-    pnlConsultarPreco: TPanel;
-    Shape2: TShape;
-    btnConsultarPreco: TSpeedButton;
-    pnlAbrirCaixa: TPanel;
-    Shape3: TShape;
-    btnAbrirCaixa: TSpeedButton;
-    pnlCancelarVenda: TPanel;
-    Shape4: TShape;
-    btnCancelarVenda: TSpeedButton;
-    pnlCancelarItem: TPanel;
-    Shape5: TShape;
-    btnCancelarItem: TSpeedButton;
-    pnlMaisFuncoes: TPanel;
-    Shape6: TShape;
-    btnMaisFuncoes: TSpeedButton;
     gridProdutos: TDBGrid;
-    pnlTotalCompra: TPanel;
-    Label1: TLabel;
-    pnlEdtTotalCompra: TPanel;
-    Shape7: TShape;
-    lblTotalCompra: TLabel;
     pnlSubTotal: TPanel;
     Label2: TLabel;
     pnlEdtSubTotal: TPanel;
@@ -80,25 +57,56 @@ type
     Panel7: TPanel;
     Panel8: TPanel;
     Shape16: TShape;
-    Panel9: TPanel;
-    Panel10: TPanel;
-    Shape17: TShape;
     SplitViewPagamentos: TSplitView;
     pnlPg: TPanel;
+    pnlContainerFinalCompra: TPanel;
+    pnlTitulo: TPanel;
+    ImageCliente: TImage;
+    pnlLogout: TPanel;
+    Image1: TImage;
+    btnSair: TSpeedButton;
+    lblCaixa: TLabel;
+    Label7: TLabel;
+    Panel9: TPanel;
     Panel11: TPanel;
     Shape18: TShape;
+    Panel12: TPanel;
+    Shape19: TShape;
+    Panel13: TPanel;
+    Shape20: TShape;
+    Panel14: TPanel;
+    Shape21: TShape;
+    Panel15: TPanel;
+    Shape22: TShape;
+    Panel16: TPanel;
+    Shape23: TShape;
+    Label6: TLabel;
+    Panel10: TPanel;
+    Label8: TLabel;
+    pnlContainerTotalCompra: TPanel;
+    pnlTotalCompra: TPanel;
+    Label1: TLabel;
+    pnlEdtTotalCompra: TPanel;
+    Shape7: TShape;
+    lblTotalCompra: TLabel;
+    Panel17: TPanel;
+    Panel18: TPanel;
+    Label9: TLabel;
+    Panel19: TPanel;
+    Shape1: TShape;
+    lblCPF: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dsItensDataChange(Sender: TObject; Field: TField);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnMaisFuncoesClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
 
   private
-
+    lPagamentos: TPagePagamentos;
     FLogin: TPageLogin; //Formulario Login
-    procedure MontarBotoes; //Atalho dos botões
-    procedure FixarForm; //Fixar tamanho de tela
+    FValor: TpageValorCaixa;
     procedure SplitViewAction(Value: TSplitView); //Abrir SplitViewFuncoes
 
   public
@@ -120,21 +128,23 @@ begin
   SplitViewAction(SplitViewFuncoes); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
 end;
 
+procedure Tpageprincipal.btnSairClick(Sender: TObject);
+begin
+   if MessageBox(Application.Handle,PwideChar('Fechar Caixa?'), 'Sim', MB_yesno+MB_IconQuestion) = MRyes then
+begin
+
+ FLogin := TPageLogin.Create(nil); //Criar Formulario
+ FLogin.Parent := pnlMaster; //Embedar - incorporar
+ FLogin.Show;
+ pnlTitle.Caption := 'Caixa Fechado';
+end;
+
+end;
+
 procedure Tpageprincipal.dsItensDataChange(Sender: TObject; Field: TField);
 begin
   //Remove barra horizontal do DBgrid1
   ShowScrollBar(gridProdutos.handle, SB_VERT, False);
-end;
-
-procedure Tpageprincipal.FixarForm;
-begin
-  //Fixar tamanho de tela ao Client
-  Self.WindowState := TWindowState.wsNormal;
-  Self.Position := poScreenCenter;
-  Self.Constraints.MaxHeight := Self.ClientHeight;
-  Self.Constraints.MinHeight := Self.ClientHeight;
-  Self.Constraints.MaxWidth := Self.ClientWidth;
-  Self.Constraints.MinWidth := Self.ClientWidth;
 end;
 
 procedure Tpageprincipal.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -144,41 +154,68 @@ end;
 
 procedure Tpageprincipal.FormCreate(Sender: TObject);
 begin
-  MontarBotoes;
-  FixarForm;
+  Align := AlNone;
+  AutoSize := False;
+  WindowState := wsNormal;
+  Top := 0;
+  Left := 0;
+  Width := Screen.Width;
+  Height := Screen.Height;
+
 end;
 
 procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 
-var
-  lPagamentos: TPagePagamentos;
 
 begin
   case Key of
   //Definir ações às teclas de atalho
-    VK_ESCAPE: ShowMessage ('Cancelar Operação');
+    //VK_ESCAPE: ShowMessage ('Cancelar Operação');
     VK_F4: ShowMessage ('Consultar Preço');
-    VK_F2: ShowMessage ('Abrir Caixa');
     VK_F6: ShowMessage ('Cancelar Venda');
     VK_F5: ShowMessage ('Cancelar Item');
     VK_F12: btnMaisFuncoesClick(Sender);
+
+    VK_F2:begin
+      FValor := TpageValorCaixa.Create(nil);
+      FValor.Show;
+
+      pnlTitle.Caption := 'Caixa Aberto';
+      ShowMessage('Caixa Aberto');
+
+    end;
+
+
+    
+
     VK_F7: begin
       lPagamentos := TPagePagamentos.Create(nil); //Cria o formulario de pagamentos
-      lPagamentos.Parent := pnlPg;
       lPagamentos.Show;
-      SplitViewAction(SplitViewPagamentos); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
+
     end;
+
     VK_F1: begin
-       TpageIdentificarCliente.New(Self)
-        .Embed(pnlMaster)
-          .Show;
+         TPageImportarCliente.New(Self).Embed(pnlMaster).Show;
+
+
+
     end;
     VK_F9: begin
         TpageIdentificarCliente.New(Self)
         .IdentificarCPF
         .Embed(pnlMaster)
-          .Show;
+        .IdentificarCliente(procedure (aCPF: String)
+        begin
+
+          if not aCPF.IsEmpty then //Se ele não for vazio
+            aCPF := aCPF; //Então ele recebe
+          if not aCPF.IsEmpty then
+          begin
+            lblCPF.Caption := aCPF; //Mostra no caption
+          end;
+        end)
+        .Show;
     end;
   end;
 end;
@@ -188,17 +225,6 @@ begin
 //  FLogin := TPageLogin.Create(nil); //Criar Formulario
 //  FLogin.Parent := pnlMaster; //Embedar - incorporar
 //  FLogin.Show;
-end;
-
-procedure Tpageprincipal.MontarBotoes;
-begin
-  //Adiciona as teclas de atalho aos botões
-  btnCancelarOp.Caption := 'Cancelar Operação' + ''#13'' + ' (ESC)';
-  btnConsultarPreco.Caption := 'Consultar Preço' + ''#13'' + ' (F4)';
-  btnAbrirCaixa.Caption := 'Abrir Caixa' + ''#13'' + ' (F2)';
-  btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + ' (F6)';
-  btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + ' (F5)';
-  btnMaisFuncoes.Caption := 'Mais Funções' + ''#13'' + ' (F12)';
 end;
 
 procedure Tpageprincipal.SplitViewAction(Value: TSplitView);

@@ -9,10 +9,10 @@ uses
   Vcl.Styles,
   pdv.model.dados in 'src\model\pdv.model.dados.pas' {dmDados: TDataModule},
   pdv.view.page.pagamento in 'src\view\pdv.view.page.pagamento.pas' {PagePagamentos},
-  pdv.view.page.pix in 'src\view\pdv.view.page.pix.pas' {FramePix: TFrame},
-  pdv.view.page.dinheiro in 'src\view\pdv.view.page.dinheiro.pas' {FrameDinheiro: TFrame},
-  pdv.view.page.cartao in 'src\view\pdv.view.page.cartao.pas' {FrameCartao: TFrame},
-  pdv.view.page.identificarcliente in 'src\view\pdv.view.page.identificarcliente.pas' {pageIdentificarCliente};
+  pdv.view.page.identificarcliente in 'src\view\pdv.view.page.identificarcliente.pas' {pageIdentificarCliente},
+  pdv.view.page.importarcliente in 'src\view\pdv.view.page.importarcliente.pas' {PageImportarCliente},
+  pdv.view.page.cartao in 'src\view\pdv.view.page.cartao.pas' {FormCartao},
+  pdv.view.page.valorcaixa in 'src\view\pdv.view.page.valorcaixa.pas' {pageValorCaixa};
 
 {$R *.res}
 
@@ -22,5 +22,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(Tpageprincipal, pageprincipal);
+  Application.CreateForm(TFormCartao, FormCartao);
+  Application.CreateForm(TpageValorCaixa, pageValorCaixa);
   Application.Run;
 end.

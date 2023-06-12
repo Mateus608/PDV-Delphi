@@ -1,0 +1,17 @@
+object FundoTransparenteMax: TFundoTransparenteMax
+  Left = 0
+  Top = 0
+  AlphaBlend = True
+  AlphaBlendValue = 205
+  BorderStyle = bsNone
+  Caption = 'FundoTransparenteMax'
+  ClientHeight = 480
+  ClientWidth = 640
+  Color = clBackground
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+end
