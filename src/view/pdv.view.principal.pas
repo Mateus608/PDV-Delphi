@@ -8,7 +8,7 @@ uses
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login,
   Vcl.WinXCtrls, pdv.view.page.pagamento, pdv.view.page.identificarcliente,
   pdv.view.page.importarcliente, Vcl.Imaging.pngimage, pdv.view.page.valorcaixa,
-  pdv.view.page.desconto;
+  pdv.view.page.desconto, pdv.view.page.calcular;
 
 type
   Tpageprincipal = class(TForm)
@@ -137,6 +137,7 @@ type
     FLogin: TPageLogin; //Formulario Login
     FValor: TpageValorCaixa;
     FDesconto: TPageDesconto;
+    FCalcular: TPageCalcular;
     procedure SplitViewAction(Value: TSplitView); //Abrir SplitViewFuncoes
   public
 
@@ -205,6 +206,12 @@ begin
     VK_ESCAPE: ShowMessage ('Cancelar Operação');
     VK_F4: ShowMessage ('Consultar Preço');
     VK_F5: ShowMessage ('Cancelar Item');
+
+    VK_DECIMAL: begin
+      FCalcular := TPageCalcular.Create(nil);
+      FCalcular.Show;
+
+    end;
 
     VK_F12: btnMaisFuncoesClick(Sender);
 

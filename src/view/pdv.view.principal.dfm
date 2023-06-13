@@ -78,8 +78,7 @@ object pageprincipal: Tpageprincipal
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitLeft = 328
-          ExplicitTop = 17
+          ExplicitHeight = 21
         end
         object Label7: TLabel
           AlignWithMargins = True
@@ -99,8 +98,7 @@ object pageprincipal: Tpageprincipal
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitLeft = 261
-          ExplicitTop = 17
+          ExplicitHeight = 21
         end
         object pnlTitulo: TPanel
           Left = 0
@@ -561,9 +559,6 @@ object pageprincipal: Tpageprincipal
             BevelOuter = bvNone
             Padding.Top = 20
             TabOrder = 0
-            ExplicitLeft = 62
-            ExplicitTop = 2
-            ExplicitWidth = 133
             object lblNomeFuncionario: TLabel
               Left = 0
               Top = 20
@@ -572,8 +567,6 @@ object pageprincipal: Tpageprincipal
               Align = alLeft
               Alignment = taRightJustify
               Caption = 'Nome Funcionario'
-              ExplicitLeft = 104
-              ExplicitTop = 40
               ExplicitHeight = 21
             end
           end

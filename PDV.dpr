@@ -13,7 +13,8 @@ uses
   pdv.view.page.importarcliente in 'src\view\pdv.view.page.importarcliente.pas' {PageImportarCliente},
   pdv.view.page.cartao in 'src\view\pdv.view.page.cartao.pas' {FormCartao},
   pdv.view.page.valorcaixa in 'src\view\pdv.view.page.valorcaixa.pas' {pageValorCaixa},
-  pdv.view.page.desconto in 'src\view\pdv.view.page.desconto.pas' {PageDesconto};
+  pdv.view.page.desconto in 'src\view\pdv.view.page.desconto.pas' {PageDesconto},
+  pdv.view.page.calcular in 'src\view\pdv.view.page.calcular.pas' {PageCalcular};
 
 {$R *.res}
 
@@ -26,5 +27,6 @@ begin
   Application.CreateForm(TFormCartao, FormCartao);
   Application.CreateForm(TpageValorCaixa, pageValorCaixa);
   Application.CreateForm(TPageDesconto, PageDesconto);
+  Application.CreateForm(TPageCalcular, PageCalcular);
   Application.Run;
 end.
