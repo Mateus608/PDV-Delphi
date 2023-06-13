@@ -74,14 +74,6 @@ procedure TpageIdentificarCliente.FormShow(Sender: TObject);
 begin
   edtCpfCnpj.SetFocus;
 
-  Align := AlNone;
-  AutoSize := False;
-  WindowState := wsNormal;
-  Top := 0;
-  Left := 0;
-  Width := Screen.Width;
-  Height := Screen.Height;
-
 end;
 
 function TpageIdentificarCliente.IdentificarCliente(

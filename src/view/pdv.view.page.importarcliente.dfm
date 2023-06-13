@@ -4,9 +4,9 @@ object PageImportarCliente: TPageImportarCliente
   AlphaBlendValue = 210
   BorderStyle = bsNone
   Caption = 'PageImportarCliente'
-  ClientHeight = 500
-  ClientWidth = 800
-  Color = clBtnFace
+  ClientHeight = 504
+  ClientWidth = 802
+  Color = clBackground
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -17,8 +17,8 @@ object PageImportarCliente: TPageImportarCliente
   object pnlContainer: TPanel
     Left = 0
     Top = 0
-    Width = 800
-    Height = 500
+    Width = 802
+    Height = 504
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -26,24 +26,30 @@ object PageImportarCliente: TPageImportarCliente
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitLeft = 10
+    ExplicitTop = 10
+    ExplicitWidth = 782
+    ExplicitHeight = 479
     object pnlTop: TPanel
       Left = 0
       Top = 0
-      Width = 800
+      Width = 802
       Height = 60
       Align = alTop
       BevelOuter = bvNone
       Color = 6178594
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 800
       object pnlFechar: TPanel
-        Left = 740
+        Left = 742
         Top = 0
         Width = 60
         Height = 60
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = 740
         object Image1: TImage
           AlignWithMargins = True
           Left = 5
@@ -606,16 +612,18 @@ object PageImportarCliente: TPageImportarCliente
     object pnlInfo: TPanel
       Left = 0
       Top = 60
-      Width = 800
-      Height = 440
+      Width = 802
+      Height = 444
       Align = alClient
       BevelOuter = bvNone
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 800
+      ExplicitHeight = 440
       object Panel3: TPanel
         Left = 0
         Top = 0
-        Width = 800
+        Width = 802
         Height = 50
         Align = alTop
         BevelOuter = bvNone
@@ -624,11 +632,12 @@ object PageImportarCliente: TPageImportarCliente
         Padding.Right = 5
         Padding.Bottom = 5
         TabOrder = 0
+        ExplicitWidth = 800
         object Shape1: TShape
           AlignWithMargins = True
           Left = 5
           Top = 8
-          Width = 682
+          Width = 684
           Height = 37
           Margins.Left = 0
           Margins.Bottom = 0
@@ -641,7 +650,7 @@ object PageImportarCliente: TPageImportarCliente
           ExplicitHeight = 65
         end
         object Button1: TButton
-          Left = 690
+          Left = 692
           Top = 5
           Width = 105
           Height = 40
@@ -654,12 +663,13 @@ object PageImportarCliente: TPageImportarCliente
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          ExplicitLeft = 690
         end
         object edtPesquisar: TSearchBox
           AlignWithMargins = True
           Left = 10
           Top = 15
-          Width = 675
+          Width = 677
           Height = 20
           Margins.Left = 5
           Margins.Top = 10
@@ -675,24 +685,27 @@ object PageImportarCliente: TPageImportarCliente
           ParentFont = False
           TabOrder = 1
           TextHint = 'Pesquisar Cliente'
+          ExplicitWidth = 675
         end
       end
       object Panel4: TPanel
         Left = 0
         Top = 50
-        Width = 800
-        Height = 390
+        Width = 802
+        Height = 394
         Align = alClient
         BevelOuter = bvNone
         Padding.Left = 5
         Padding.Top = 5
         Padding.Right = 5
         TabOrder = 1
+        ExplicitWidth = 800
+        ExplicitHeight = 390
         object DBGrid1: TDBGrid
           Left = 5
           Top = 5
-          Width = 790
-          Height = 385
+          Width = 792
+          Height = 389
           Align = alClient
           BorderStyle = bsNone
           Options = [dgTitles, dgColLines, dgRowLines, dgTabs, dgRowSelect]

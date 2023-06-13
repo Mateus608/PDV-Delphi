@@ -12,7 +12,8 @@ uses
   pdv.view.page.identificarcliente in 'src\view\pdv.view.page.identificarcliente.pas' {pageIdentificarCliente},
   pdv.view.page.importarcliente in 'src\view\pdv.view.page.importarcliente.pas' {PageImportarCliente},
   pdv.view.page.cartao in 'src\view\pdv.view.page.cartao.pas' {FormCartao},
-  pdv.view.page.valorcaixa in 'src\view\pdv.view.page.valorcaixa.pas' {pageValorCaixa};
+  pdv.view.page.valorcaixa in 'src\view\pdv.view.page.valorcaixa.pas' {pageValorCaixa},
+  pdv.view.page.desconto in 'src\view\pdv.view.page.desconto.pas' {PageDesconto};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(Tpageprincipal, pageprincipal);
   Application.CreateForm(TFormCartao, FormCartao);
   Application.CreateForm(TpageValorCaixa, pageValorCaixa);
+  Application.CreateForm(TPageDesconto, PageDesconto);
   Application.Run;
 end.

@@ -1,27 +1,27 @@
 object pageIdentificarCliente: TpageIdentificarCliente
   Left = 0
   Top = 0
-  AlphaBlend = True
   AlphaBlendValue = 210
   BorderStyle = bsNone
   Caption = 'pageIdentificarCliente'
-  ClientHeight = 710
-  ClientWidth = 1190
-  Color = clBackground
+  ClientHeight = 190
+  ClientWidth = 350
+  Color = 6178594
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   TextHeight = 15
   object pnlIdentificacaoCliente: TPanel
     AlignWithMargins = True
-    Left = 448
-    Top = 264
-    Width = 450
-    Height = 200
+    Left = 5
+    Top = 5
+    Width = 340
+    Height = 180
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -34,7 +34,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
       AlignWithMargins = True
       Left = 0
       Top = 0
-      Width = 450
+      Width = 340
       Height = 41
       Margins.Left = 0
       Margins.Top = 0
@@ -52,16 +52,17 @@ object pageIdentificarCliente: TpageIdentificarCliente
       object Shape1: TShape
         Left = 0
         Top = 40
-        Width = 450
+        Width = 340
         Height = 1
         Align = alBottom
         ExplicitTop = -24
+        ExplicitWidth = 450
       end
     end
     object pnlCpfCnpj: TPanel
       Left = 0
       Top = 44
-      Width = 450
+      Width = 340
       Height = 41
       Align = alTop
       BevelOuter = bvNone
@@ -70,7 +71,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
         AlignWithMargins = True
         Left = 5
         Top = 0
-        Width = 445
+        Width = 335
         Height = 20
         Margins.Left = 5
         Margins.Top = 0
@@ -89,18 +90,19 @@ object pageIdentificarCliente: TpageIdentificarCliente
       object Shape2: TShape
         Left = 0
         Top = 20
-        Width = 450
+        Width = 340
         Height = 21
         Align = alClient
         Pen.Style = psClear
         Shape = stRoundRect
+        ExplicitWidth = 450
         ExplicitHeight = 18
       end
       object edtCpfCnpj: TEdit
         AlignWithMargins = True
         Left = 5
         Top = 20
-        Width = 442
+        Width = 332
         Height = 18
         Margins.Left = 5
         Margins.Top = 0
@@ -118,8 +120,8 @@ object pageIdentificarCliente: TpageIdentificarCliente
     object pnlButton: TPanel
       Left = 0
       Top = 85
-      Width = 450
-      Height = 115
+      Width = 340
+      Height = 95
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -136,7 +138,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
         Left = 5
         Top = 5
         Width = 150
-        Height = 105
+        Height = 85
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 28
@@ -148,7 +150,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
           Left = 120
           Top = 0
           Width = 30
-          Height = 105
+          Height = 85
           Align = alClient
           Pen.Color = 1357025
           Pen.Style = psClear
@@ -162,7 +164,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 85
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
@@ -279,7 +281,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
             Left = 0
             Top = 51
             Width = 120
-            Height = 54
+            Height = 34
             Align = alClient
             BevelOuter = bvNone
             Caption = 'Cancelar (Esc)'
@@ -294,10 +296,10 @@ object pageIdentificarCliente: TpageIdentificarCliente
         end
       end
       object pnlPix: TPanel
-        Left = 325
+        Left = 215
         Top = 5
         Width = 120
-        Height = 105
+        Height = 85
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 28
@@ -309,7 +311,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 85
           Align = alClient
           Pen.Color = 1357025
           Pen.Style = psClear
@@ -323,7 +325,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 85
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
@@ -435,7 +437,7 @@ object pageIdentificarCliente: TpageIdentificarCliente
             Left = 0
             Top = 51
             Width = 120
-            Height = 54
+            Height = 34
             Align = alClient
             BevelOuter = bvNone
             Caption = 'Confirmar (Enter)'

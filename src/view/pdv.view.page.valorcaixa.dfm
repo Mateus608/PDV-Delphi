@@ -1,26 +1,26 @@
 object pageValorCaixa: TpageValorCaixa
   Left = 0
   Top = 0
-  AlphaBlend = True
   AlphaBlendValue = 210
   BorderStyle = bsNone
   Caption = 'pageValorCaixa'
-  ClientHeight = 710
-  ClientWidth = 1190
-  Color = clBackground
+  ClientHeight = 183
+  ClientWidth = 326
+  Color = 6178594
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   OnShow = FormShow
   TextHeight = 15
   object pnlIdentificacaoCliente: TPanel
     AlignWithMargins = True
-    Left = 448
-    Top = 264
-    Width = 450
-    Height = 200
+    Left = 5
+    Top = 5
+    Width = 316
+    Height = 172
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -33,7 +33,7 @@ object pageValorCaixa: TpageValorCaixa
       AlignWithMargins = True
       Left = 0
       Top = 0
-      Width = 450
+      Width = 316
       Height = 41
       Margins.Left = 0
       Margins.Top = 0
@@ -51,16 +51,17 @@ object pageValorCaixa: TpageValorCaixa
       object Shape1: TShape
         Left = 0
         Top = 40
-        Width = 450
+        Width = 316
         Height = 1
         Align = alBottom
         ExplicitTop = -24
+        ExplicitWidth = 450
       end
     end
     object pnlCpfCnpj: TPanel
       Left = 0
       Top = 44
-      Width = 450
+      Width = 316
       Height = 41
       Align = alTop
       BevelOuter = bvNone
@@ -69,7 +70,7 @@ object pageValorCaixa: TpageValorCaixa
         AlignWithMargins = True
         Left = 5
         Top = 0
-        Width = 445
+        Width = 311
         Height = 20
         Margins.Left = 5
         Margins.Top = 0
@@ -88,18 +89,19 @@ object pageValorCaixa: TpageValorCaixa
       object Shape2: TShape
         Left = 0
         Top = 20
-        Width = 450
+        Width = 316
         Height = 21
         Align = alClient
         Pen.Style = psClear
         Shape = stRoundRect
+        ExplicitWidth = 450
         ExplicitHeight = 18
       end
       object edtValor: TEdit
         AlignWithMargins = True
         Left = 5
         Top = 20
-        Width = 442
+        Width = 308
         Height = 18
         Margins.Left = 5
         Margins.Top = 0
@@ -117,8 +119,8 @@ object pageValorCaixa: TpageValorCaixa
     object pnlButton: TPanel
       Left = 0
       Top = 85
-      Width = 450
-      Height = 115
+      Width = 316
+      Height = 87
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -135,7 +137,7 @@ object pageValorCaixa: TpageValorCaixa
         Left = 5
         Top = 5
         Width = 150
-        Height = 105
+        Height = 77
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 28
@@ -147,7 +149,7 @@ object pageValorCaixa: TpageValorCaixa
           Left = 120
           Top = 0
           Width = 30
-          Height = 105
+          Height = 77
           Align = alClient
           Pen.Color = 1357025
           Pen.Style = psClear
@@ -161,7 +163,7 @@ object pageValorCaixa: TpageValorCaixa
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 77
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
@@ -173,7 +175,7 @@ object pageValorCaixa: TpageValorCaixa
             Align = alTop
             BevelOuter = bvNone
             TabOrder = 0
-            object Image2: TImage
+            object ImgCancelar: TImage
               AlignWithMargins = True
               Left = 40
               Top = 5
@@ -266,7 +268,7 @@ object pageValorCaixa: TpageValorCaixa
                 84AF09B818502140312A0428468500C5A810A018150214A34280625408508CFF
                 01EAA8F09D3994A8130000000049454E44AE426082}
               Stretch = True
-              OnClick = Image2Click
+              OnClick = ImgCancelarClick
               ExplicitLeft = 96
               ExplicitTop = 16
               ExplicitWidth = 105
@@ -277,7 +279,7 @@ object pageValorCaixa: TpageValorCaixa
             Left = 0
             Top = 51
             Width = 120
-            Height = 54
+            Height = 26
             Align = alClient
             BevelOuter = bvNone
             Caption = 'Cancelar (ESC)'
@@ -292,10 +294,10 @@ object pageValorCaixa: TpageValorCaixa
         end
       end
       object pnlPix: TPanel
-        Left = 325
+        Left = 191
         Top = 5
         Width = 120
-        Height = 105
+        Height = 77
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 28
@@ -307,7 +309,7 @@ object pageValorCaixa: TpageValorCaixa
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 77
           Align = alClient
           Pen.Color = 1357025
           Pen.Style = psClear
@@ -321,7 +323,7 @@ object pageValorCaixa: TpageValorCaixa
           Left = 0
           Top = 0
           Width = 120
-          Height = 105
+          Height = 77
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
@@ -333,7 +335,7 @@ object pageValorCaixa: TpageValorCaixa
             Align = alTop
             BevelOuter = bvNone
             TabOrder = 0
-            object Image3: TImage
+            object ImgConfirmar: TImage
               AlignWithMargins = True
               Left = 40
               Top = 5
@@ -421,6 +423,7 @@ object pageValorCaixa: TpageValorCaixa
                 AF75668F4D045A808F031A0258464300CB680860190D012CA32180653404B08C
                 860096F17F1224B39D9376D4820000000049454E44AE426082}
               Stretch = True
+              OnClick = ImgConfirmarClick
               ExplicitLeft = 30
               ExplicitTop = 3
               ExplicitWidth = 60
@@ -431,7 +434,7 @@ object pageValorCaixa: TpageValorCaixa
             Left = 0
             Top = 51
             Width = 120
-            Height = 54
+            Height = 26
             Align = alClient
             BevelOuter = bvNone
             Caption = 'Confirmar (Enter)'

@@ -21,20 +21,21 @@ type
     ShapeCredito: TShape;
     pnlCartao: TPanel;
     Panel21: TPanel;
-    Image2: TImage;
+    ImgCancelar: TImage;
     Panel22: TPanel;
     pnlPix: TPanel;
     ShapeDebito: TShape;
     Panel24: TPanel;
     Panel25: TPanel;
-    Image3: TImage;
+    ImgConfirmar: TImage;
     Panel26: TPanel;
     procedure FormShow(Sender: TObject);
-    procedure Image2Click(Sender: TObject);
+    procedure ImgCancelarClick(Sender: TObject);
+    procedure ImgConfirmarClick(Sender: TObject);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
@@ -47,20 +48,33 @@ implementation
 procedure TpageValorCaixa.FormShow(Sender: TObject);
 begin
   edtValor.SetFocus;
-
-  Align := AlNone;
-  AutoSize := False;
-  WindowState := wsNormal;
-  Top := 0;
-  Left := 0;
-  Width := Screen.Width;
-  Height := Screen.Height;
 end;
 
-procedure TpageValorCaixa.Image2Click(Sender: TObject);
+procedure TpageValorCaixa.ImgCancelarClick(Sender: TObject);
 begin
+  ShowMessage('Não foi possivel abrir o caixa');
+
   Self.Close;
   Self.Free;
+
+end;
+
+procedure TpageValorCaixa.ImgConfirmarClick(Sender: TObject);
+begin
+  if edtValor.Text = emptystr then
+  begin
+  ShowMessage('Digite um valor para abrir o caixa');
+  Self.SetFocus;
+  end;
+
+  if (Trim(edtValor.Text)) <> '' then
+  begin
+  ShowMessage('Caixa aberto');
+  Self.Close;
+  Self.Free;
+  end;
+
+
 end;
 
 end.

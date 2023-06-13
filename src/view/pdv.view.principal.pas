@@ -7,16 +7,58 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Data.DB,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.jpeg, pdv.view.page.login,
   Vcl.WinXCtrls, pdv.view.page.pagamento, pdv.view.page.identificarcliente,
-  pdv.view.page.importarcliente, Vcl.Imaging.pngimage, pdv.view.page.valorcaixa;
+  pdv.view.page.importarcliente, Vcl.Imaging.pngimage, pdv.view.page.valorcaixa,
+  pdv.view.page.desconto;
 
 type
   Tpageprincipal = class(TForm)
+    pnlMaster: TPanel;
+    dsItens: TDataSource;
     pnlContainer: TPanel;
     pnlTitle: TPanel;
+    lblCaixa: TLabel;
+    Label7: TLabel;
+    pnlTitulo: TPanel;
+    ImageCliente: TImage;
+    pnlLogout: TPanel;
+    Image1: TImage;
+    btnSair: TSpeedButton;
+    Panel10: TPanel;
+    Label6: TLabel;
+    Label8: TLabel;
+    SplitViewFuncoes: TSplitView;
+    pnlFuncoes: TPanel;
+    pnlCpf: TPanel;
+    Shape12: TShape;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Shape13: TShape;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Shape14: TShape;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Shape15: TShape;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Shape16: TShape;
+    Panel9: TPanel;
+    Panel11: TPanel;
+    Shape18: TShape;
+    Panel12: TPanel;
+    Shape19: TShape;
+    Panel13: TPanel;
+    Shape20: TShape;
+    Panel14: TPanel;
+    Shape21: TShape;
+    Panel15: TPanel;
+    Shape22: TShape;
+    Panel16: TPanel;
+    Shape23: TShape;
+    SplitViewPagamentos: TSplitView;
+    pnlPg: TPanel;
     pnlMain: TPanel;
     pnlOperacoes: TPanel;
-    pnlGrid: TPanel;
-    gridProdutos: TDBGrid;
     pnlSubTotal: TPanel;
     Label2: TLabel;
     pnlEdtSubTotal: TPanel;
@@ -39,62 +81,49 @@ type
     edtProduto: TEdit;
     pnlImgProduto: TPanel;
     ImageProduto: TImage;
-    pnlMaster: TPanel;
-    dsItens: TDataSource;
-    SplitViewFuncoes: TSplitView;
-    pnlFuncoes: TPanel;
-    pnlCpf: TPanel;
-    Shape12: TShape;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Shape13: TShape;
-    Panel3: TPanel;
-    Panel4: TPanel;
-    Shape14: TShape;
-    Panel5: TPanel;
-    Panel6: TPanel;
-    Shape15: TShape;
-    Panel7: TPanel;
-    Panel8: TPanel;
-    Shape16: TShape;
-    SplitViewPagamentos: TSplitView;
-    pnlPg: TPanel;
+    pnlGrid: TPanel;
+    gridProdutos: TDBGrid;
     pnlContainerFinalCompra: TPanel;
-    pnlTitulo: TPanel;
-    ImageCliente: TImage;
-    pnlLogout: TPanel;
-    Image1: TImage;
-    btnSair: TSpeedButton;
-    lblCaixa: TLabel;
-    Label7: TLabel;
-    Panel9: TPanel;
-    Panel11: TPanel;
-    Shape18: TShape;
-    Panel12: TPanel;
-    Shape19: TShape;
-    Panel13: TPanel;
-    Shape20: TShape;
-    Panel14: TPanel;
-    Shape21: TShape;
-    Panel15: TPanel;
-    Shape22: TShape;
-    Panel16: TPanel;
-    Shape23: TShape;
-    Label6: TLabel;
-    Panel10: TPanel;
-    Label8: TLabel;
-    pnlContainerTotalCompra: TPanel;
+    pnlImageBg: TPanel;
+    pnlContainerCPF: TPanel;
+    lblCPF: TLabel;
     pnlTotalCompra: TPanel;
     Label1: TLabel;
     pnlEdtTotalCompra: TPanel;
     Shape7: TShape;
     lblTotalCompra: TLabel;
+    SplitViewFuncoesInicio: TSplitView;
+    Panel20: TPanel;
+    Panel21: TPanel;
+    Shape2: TShape;
+    Panel22: TPanel;
+    Panel23: TPanel;
+    Shape3: TShape;
+    Panel24: TPanel;
+    Panel25: TPanel;
+    Shape4: TShape;
+    Panel26: TPanel;
+    Panel27: TPanel;
+    Shape5: TShape;
+    Panel28: TPanel;
+    Panel29: TPanel;
+    Shape6: TShape;
+    Panel30: TPanel;
+    Panel31: TPanel;
+    Shape17: TShape;
+    Panel32: TPanel;
+    Shape24: TShape;
+    Panel33: TPanel;
+    Shape25: TShape;
+    Panel34: TPanel;
+    Shape26: TShape;
+    Panel35: TPanel;
+    Shape27: TShape;
+    Panel36: TPanel;
+    Shape28: TShape;
     Panel17: TPanel;
-    Panel18: TPanel;
-    Label9: TLabel;
-    Panel19: TPanel;
-    Shape1: TShape;
-    lblCPF: TLabel;
+    lblNomeFuncionario: TLabel;
+    Image: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -107,8 +136,8 @@ type
     lPagamentos: TPagePagamentos;
     FLogin: TPageLogin; //Formulario Login
     FValor: TpageValorCaixa;
+    FDesconto: TPageDesconto;
     procedure SplitViewAction(Value: TSplitView); //Abrir SplitViewFuncoes
-
   public
 
   end;
@@ -125,7 +154,9 @@ uses pdv.model.dados;
 
 procedure Tpageprincipal.btnMaisFuncoesClick(Sender: TObject);
 begin
-  SplitViewAction(SplitViewFuncoes); //Executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
+//executa a ação SplitView.Opened = True (Abre a splitview ao precionar botão)
+  SplitViewAction(SplitViewFuncoes);
+  SplitViewAction(SplitViewFuncoesInicio);
 end;
 
 procedure Tpageprincipal.btnSairClick(Sender: TObject);
@@ -171,19 +202,29 @@ procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
 begin
   case Key of
   //Definir ações às teclas de atalho
-    //VK_ESCAPE: ShowMessage ('Cancelar Operação');
+    VK_ESCAPE: ShowMessage ('Cancelar Operação');
     VK_F4: ShowMessage ('Consultar Preço');
-    VK_F6: ShowMessage ('Cancelar Venda');
     VK_F5: ShowMessage ('Cancelar Item');
+
     VK_F12: btnMaisFuncoesClick(Sender);
 
     VK_F2:begin
-      FValor := TpageValorCaixa.Create(nil);
-      FValor.Show;
+    FValor := TpageValorCaixa.Create(nil);
+    FValor.Show;
 
-      pnlTitle.Caption := 'Caixa Aberto';
-      ShowMessage('Caixa Aberto');
+    end;
 
+    VK_F3: begin
+      pnlImageBg.Visible := False;
+      pnlMain.Visible := True;
+    end;
+
+    VK_F6: begin
+      if MessageBox(Application.Handle,PwideChar('Cancelar Venda?'), 'Sim', MB_yesno+MB_IconQuestion) = MRyes then
+      begin
+        pnlMain.Visible := False;
+        pnlImageBg.Visible := True;
+      end;
     end;
 
 
@@ -212,19 +253,37 @@ begin
             aCPF := aCPF; //Então ele recebe
           if not aCPF.IsEmpty then
           begin
-            lblCPF.Caption := aCPF; //Mostra no caption
+            lblCPF.Caption := 'CPF: ' + aCPF; //Mostra no caption
           end;
         end)
         .Show;
     end;
+
+
+  VK_F11: begin
+    FDesconto := TPageDesconto.Create(nil);
+    FDesconto.Show;
   end;
+
+end;
 end;
 
 procedure Tpageprincipal.FormShow(Sender: TObject);
 begin
-//  FLogin := TPageLogin.Create(nil); //Criar Formulario
-//  FLogin.Parent := pnlMaster; //Embedar - incorporar
-//  FLogin.Show;
+  TPageLogin.New(Self)
+        .IdentificarUser
+        .Embed(pnlMaster)
+        .IdentificarUsuario(procedure (aUser: String)
+        begin
+
+          if not aUser.IsEmpty then //Se ele não for vazio
+            aUser := aUser; //Então ele recebe
+          if not aUser.IsEmpty then
+          begin
+            lblNomeFuncionario.Caption := aUser; //Mostra no caption
+          end;
+        end)
+        .Show;
 end;
 
 procedure Tpageprincipal.SplitViewAction(Value: TSplitView);

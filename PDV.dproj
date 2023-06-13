@@ -139,6 +139,10 @@
             <Form>pageValorCaixa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\pdv.view.page.desconto.pas">
+            <Form>PageDesconto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

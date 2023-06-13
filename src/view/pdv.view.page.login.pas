@@ -34,8 +34,12 @@ type
     procedure FormShow(Sender: TObject);
   private
     FFundo: TFundoTransparente; //Fundo transparente na imagem do Form Login
+    FUsuario: TProc<String>;
   public
-
+    class function New(AOWner: TComponent): TPageLogin;
+    function Embed(Value: TWinControl): TPageLogin;
+    function IdentificarUser: TPageLogin;
+    function IdentificarUsuario(Value: TProc<String>): TPageLogin;
   end;
 
 var
@@ -47,16 +51,24 @@ implementation
 
 procedure TPageLogin.btnLogarClick(Sender: TObject);
 begin
-  if not ((edtUsuario.Text = 'Test') and //Adiciona um usuario ao campo edtUsuario
+  if not ((edtUsuario.Text = 'Mateus') and //Adiciona um usuario ao campo edtUsuario
     (edtSenha.Text = '123')) then //Adiciona uma senha ao campo edtSenha
   begin
     ShowMessage('Login e senha invalidos'); //Mensagem que dispara caso Login e Senha sejam invalidos
     Exit; //Se o Login e Senha estiverem corretos, o Form de Login termina
   end;
+  if Assigned(FUsuario) then
+    FUsuario(edtUsuario.Text); //Ao cliclar em confirmar, ele passa os valores para o FProc
   close; //Fecha o Form Login
 
 end;
 
+
+function TPageLogin.Embed(Value: TWinControl): TPageLogin;
+begin
+   Result := Self; //Retorna este (Self) - retorna para essa classe
+   Self.Parent := Value;
+end;
 
 procedure TPageLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -87,6 +99,22 @@ end;
 procedure TPageLogin.FormShow(Sender: TObject);
 begin
   edtUsuario.SetFocus;
+end;
+
+function TPageLogin.IdentificarUser: TPageLogin;
+begin
+  Result := Self;
+end;
+
+function TPageLogin.IdentificarUsuario(Value: TProc<String>): TPageLogin;
+begin
+  Result := Self;
+  FUsuario := Value;
+end;
+
+class function TPageLogin.New(AOWner: TComponent): TPageLogin;
+begin
+  Result := Self.Create(AOwner);
 end;
 
 end.
